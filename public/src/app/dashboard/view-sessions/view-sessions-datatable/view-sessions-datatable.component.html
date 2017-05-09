@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="col-md-12 col-sm-12 col-xs-12">
+    <div class="x_panel">
+      <div class="x_title">
+      <h2>Classes for {{session}} session</h2>
+      <div class="clearfix"></div>
+      </div>
+      <div class="ui-widget-header" style="padding:4px 10px;border-bottom: 0 none">
+        <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
+        <input #gb type="text" pInputText size="50" placeholder="Search">
+      </div>
+      <p-dataTable [value]="classes" [rows]="10" [paginator]="true" [globalFilter]="gb" #dt [pageLinks]="3" [rowsPerPageOptions]="[5,10,20]">
+        <p-column field="id" header="Class ID" [sortable]="true"></p-column>
+        <p-column field="name" header="Class Name" [sortable]="true"></p-column>
+        <p-column header="Action"></p-column>
+      </p-dataTable>
+    </div>
+  </div>
+</div>

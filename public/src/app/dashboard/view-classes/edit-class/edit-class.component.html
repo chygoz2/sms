@@ -1,0 +1,46 @@
+<div class="right_col" role="main">
+  <div class="">
+    <div class="row">
+      <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+          <div class="x_title">
+            <h2>Add Class</h2>
+            <div class="clearfix"></div>
+          </div>
+          <div class="x_content">
+            <br />
+            <form id="demo-form2" class="form-horizontal form-label-left" [formGroup]="form" (ngSubmit)="onSubmit()">
+              <div style="margin-top: 10px" class="alert alert-success" *ngIf="editSuccess">{{ editMessage }}</div>
+              <div style="margin-top: 10px" class="alert alert-danger" *ngIf="!editSuccess && isFormSubmitted">{{ editMessage }}</div>
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="class-name">Class Name <span style="font-weight: 100">(eg SS1A)</span> <span class="required">*</span>
+                </label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                  <input type="text" id="class-name" required="required" class="form-control col-md-7 col-xs-12" formControlName="className">
+                  <div style="margin-top: 10px" class="alert alert-danger" *ngIf="form.controls['className'].invalid &&
+                  form.controls['className'].touched">Please enter a class name</div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="class-id">Class ID <span class="required">*</span>
+                </label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                  <input type="text" id="class-id" required="required" class="form-control col-md-7 col-xs-12" formControlName="classId">
+                  <div style="margin-top: 10px" class="alert alert-danger" *ngIf="form.controls['classId'].invalid &&
+                   form.controls['classId'].touched">Please enter a class ID</div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                  <button type="submit" class="btn btn-success" [disabled]="form.invalid">Submit</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

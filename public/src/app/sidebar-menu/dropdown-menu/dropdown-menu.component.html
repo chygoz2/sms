@@ -1,0 +1,12 @@
+<li [ngClass]="{active: isOpen}">
+  <a *ngIf="menuDetails.link; else withSubmenu" [routerLink]="['../', menuDetails.link]" routerLinkActive="active">
+    <i [ngClass]="menuDetails.icon"></i>{{menuDetails.title}}
+  </a>
+  <ng-template #withSubmenu>
+    <a>
+      <i [ngClass]="menuDetails.icon"></i>{{menuDetails.title}}<span class="fa fa-chevron-down"></span>
+    </a>
+    <!--<sms-dropdown-menu-title [title]="menuDetails.title" [icon]="menuDetails.icon"></sms-dropdown-menu-title>-->
+    <sms-dropdown-menu-body [submenus]="menuDetails.submenus"></sms-dropdown-menu-body>
+  </ng-template>
+</li>

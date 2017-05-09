@@ -1,0 +1,11 @@
+<div class="right_col" role="main">
+  <div>
+    <h3>View Classes</h3>
+    <sms-view-classes-datatable [classes]="classes" *ngIf="classes.length>0; else noClasses"></sms-view-classes-datatable>
+    <ng-template #noClasses>
+      <p>No classes found</p>
+    </ng-template>
+  </div>
+</div>
+
+

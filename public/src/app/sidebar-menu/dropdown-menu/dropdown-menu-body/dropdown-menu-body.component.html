@@ -1,0 +1,4 @@
+<ul class="nav child_menu" [ngStyle]="{display: display}">
+  <li *ngFor="let s of submenus"><a style="cursor: pointer" [routerLink]="[s.link]">{{s.title}}</a></li>
+</ul>
+
