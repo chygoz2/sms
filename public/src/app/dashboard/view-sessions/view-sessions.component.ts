@@ -41,7 +41,6 @@ export class ViewSessionsComponent implements OnInit {
   onSubmit() {
     this.selectedSession = this.queryForm.value.session;
     this.classes = [];
-    // console.log(this.selectedSession);
     //get the classes for that session
     this.sessionClassesService.getSessionClasses(this.selectedSession).subscribe(
       response => {
@@ -52,8 +51,8 @@ export class ViewSessionsComponent implements OnInit {
           this.fetchError = false;
           this.fetchErrorMessage = '';
           for(let i=0; i<response.message.length; i++){
-            this.classes.push(new Class(response.message[i].id, response.message[i]._id,
-              response.message[i].name, response.message[i].superclass));
+            this.classes.push(new Class(response.message[i].classId.id, response.message[i].classId._id,
+              response.message[i].classId.name, response.message[i].classId.superclass));
           }
         }
       }

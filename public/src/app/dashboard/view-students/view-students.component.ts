@@ -30,7 +30,6 @@ export class ViewStudentsComponent implements OnInit {
           this.fetchError = false;
           this.fetchErrorMessage = '';
           this.sessions = response.message;
-          console.log(this.sessions);
         }
       }
     );
@@ -55,7 +54,6 @@ export class ViewStudentsComponent implements OnInit {
 
     this.studentsService.getStudentsBySessionAndClass(session,className).subscribe(
       data => {
-        // console.log(data);
         if(data.error){
           this.fetchError = true;
         }else{

@@ -4,6 +4,7 @@ var User = require('../../models/users_model');
 var SessionClass = require('../../models/session_class_model');
 var Class = require('../../models/class_model');
 var Emitter = require('events');
+var mongoose = require('mongoose');
 
 router.get('/', function(req,res,next){
     User.find({role: 'student'}, function(err, students){
@@ -68,11 +69,13 @@ router.get('/:session/:name', function (req,res,next) {
             res.json({error: true, message: "Class not found"});
             return;
         }
+        console.log(clss[0])
         SessionClass.find({session: req.params.session, classId: clss[0]._id}, function(err, sessionClasses){
            if(err){
                res.json({error: true, message: "Error occured while retrieving session class details"});
                return;
            }
+           console.log(sessionClasses)
            if(sessionClasses.length === 0) {
                res.json({error: true, message: "Selected class not found in the selected session"});
                return;
@@ -96,5 +99,12 @@ router.get('/:session/:name', function (req,res,next) {
         })
     }
 });
+
+// router.get('/:session/:name', function (req,res,next) {
+//     SessionClass.find({session: req.params.session, classId.name: req.params.name}, function(err, data){
+//         if(err) throw err;
+//         console.log(data);
+//     })
+// });
 
 module.exports = router;
