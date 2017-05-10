@@ -38,6 +38,12 @@ export class EditSessionClassesComponent implements OnInit {
         this.classes = data;
       }
     );
+
+    this.form.get('years').get('sessionStartYear').valueChanges.subscribe(
+      newValue => {
+        this.form.get('years').get('sessionEndYear').setValue(parseInt(newValue)+1);
+      }
+    );
   }
 
   validateEndYearGreaterThanStartYear(form : AbstractControl): {[key: string] : boolean} {
@@ -51,7 +57,7 @@ export class EditSessionClassesComponent implements OnInit {
 
   onSubmit() {
     // console.log(this.form);
-    this.isFormSubmitted = true;
+
     let sc = new SessionClass(
       this.form.value.years.sessionStartYear+'-'+this.form.value.years.sessionEndYear,
       this.form.value.className,
@@ -62,13 +68,13 @@ export class EditSessionClassesComponent implements OnInit {
 
     this.sessionClassesService.addSessionClass(sc).subscribe(
       response => {
+        this.isFormSubmitted = true;
         if(!response.error) {
           this.editSuccess = true;
         }
         this.editMessage = response.message;
       }
     )
-
   }
 
 }

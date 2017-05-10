@@ -38,6 +38,15 @@ export class SidebarMenuComponent implements OnInit {
       ]
     },
     {
+      'title': 'Subjects',
+      'icon': 'fa fa-edit',
+      'submenus': [
+        {title:'Add Subject', link:'subjects/add'},
+        {title:'View Subjects', link:'subjects'},
+        {title:'Register Subject on Session', link:'subjects/register'}
+      ]
+    },
+    {
       'title': 'Forms',
       'icon': 'fa fa-edit',
       'submenus': [

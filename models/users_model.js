@@ -5,6 +5,15 @@ var Role = require('./roles_model');
 
 var Schema = mongoose.Schema;
 
+var schemaOptions = {
+    toObject: {
+        virtuals: true
+    }
+    ,toJSON: {
+        virtuals: true
+    }
+};
+
 var userSchema = new Schema({
     firstname: String,
     lastname: String,
@@ -12,6 +21,11 @@ var userSchema = new Schema({
     password: String,
     role: String,
     id: String
+}, schemaOptions);
+
+
+userSchema.virtual('fullName').get(function(){
+    return this.firstname + ' ' + this.lastname;
 });
 
 // generating a hash

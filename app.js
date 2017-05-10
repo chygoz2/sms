@@ -22,6 +22,7 @@ var setupStudentClassEnrolment = require('./routes/setup/setupStudentClassEnrolm
 var academicSessions = require('./routes/academic/sessions');
 var academicClasses = require('./routes/academic/classes');
 var sessionClasses = require('./routes/academic/sessionClasses');
+var subjects = require('./routes/academic/subjects');
 
 var mongoose = require('mongoose');
 var config = require('./config');
@@ -59,6 +60,7 @@ app.use('/api/students', students);
 app.use('/api/sessions', academicSessions);
 app.use('/api/classes', academicClasses);
 app.use('/api/session-classes', sessionClasses);
+app.use('/api/subjects', subjects);
 
 
 // catch 404 and forward to error handler

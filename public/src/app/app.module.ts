@@ -27,6 +27,11 @@ import { ViewSessionsComponent } from './dashboard/view-sessions/view-sessions.c
 import { ViewSessionsDatatableComponent } from './dashboard/view-sessions/view-sessions-datatable/view-sessions-datatable.component';
 import { EditSessionClassesComponent } from './dashboard/view-sessions/edit-session-classes/edit-session-classes.component';
 import {SessionClassesService} from './dashboard/view-sessions/session-classes.service';
+import { SubjectsComponent } from './dashboard/subjects/subjects.component';
+import { EditSubjectComponent } from './dashboard/subjects/edit-subject/edit-subject.component';
+import { ViewSubjectsDatatableComponent } from './dashboard/subjects/view-subjects-datatable/view-subjects-datatable.component';
+import {SubjectsService} from './dashboard/subjects/subjects.service';
+import {SortPipe} from './shared/sort.pipe';
 
 @NgModule({
   declarations: [
@@ -45,7 +50,11 @@ import {SessionClassesService} from './dashboard/view-sessions/session-classes.s
     EditClassComponent,
     ViewSessionsComponent,
     ViewSessionsDatatableComponent,
-    EditSessionClassesComponent
+    EditSessionClassesComponent,
+    SubjectsComponent,
+    EditSubjectComponent,
+    ViewSubjectsDatatableComponent,
+    SortPipe
   ],
   imports: [
     BrowserModule,
@@ -55,7 +64,7 @@ import {SessionClassesService} from './dashboard/view-sessions/session-classes.s
     ReactiveFormsModule,
     DataTableModule
   ],
-  providers: [DropdownMenuService, AuthGuard, AuthService, StudentsService, ClassesService, SessionClassesService],
+  providers: [DropdownMenuService, AuthGuard, AuthService, StudentsService, ClassesService, SessionClassesService, SubjectsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

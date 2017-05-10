@@ -1,0 +1,69 @@
+<div class="right_col" role="main">
+  <div class="">
+    <div class="row">
+      <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+          <div class="x_title">
+            <h2>Select query type</h2>
+            <div class="clearfix"></div>
+          </div>
+          <div class="x_content">
+            <br />
+            <form id="demo-form2" class="form-horizontal form-label-left" [formGroup]="queryForm" (ngSubmit)="onSubmit()">
+              <div style="margin-top: 10px" class="alert alert-danger" *ngIf="fetchError">{{fetchErrorMessage}}</div>
+
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">Query type <span class="required">*</span></label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                  <div id="gender" class="btn-group">
+                    <label class="btn btn-default" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+                      <input type="radio" name="queryType" value="all" formControlName="queryType"> &nbsp; All &nbsp;
+                    </label>
+                    <label class="btn btn-default" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+                      <input type="radio" name="queryType" value="session" formControlName="queryType"> By Session
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group" *ngIf="queryForm.get('queryType').value==='session'">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="session">Session <span class="required">*</span>
+                </label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                  <select class="select2_single form-control" tabindex="-1" name="session" id="session" formControlName="session">
+                    <option disabled>Select a session</option>
+                    <option *ngFor="let sess of sessions | sort: 'desc' " [value]="sess">{{sess}}</option>
+                  </select>
+                  <div style="margin-top: 10px" class="alert alert-danger" *ngIf="queryForm.errors && queryForm.errors['sessionEmpty'] && queryForm.controls['session'].touched">Please select a session</div>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                  <button type="submit" class="btn btn-success" [disabled]="queryForm.invalid">Submit</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="right_col" role="main" *ngIf="isFormSubmitted">
+  <div>
+    <h3>View Subjects</h3>
+    <sms-view-subjects-datatable [subjects]="subjects" *ngIf="subjects.length>0; else noSubjects"></sms-view-subjects-datatable>
+    <ng-template #noSubjects>
+      <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+          <div class="x_panel">
+            <p>No subjects found</p>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </div>
+</div>
+
+

@@ -60,7 +60,7 @@ export class ViewStudentsComponent implements OnInit {
           this.fetchError = false;
           for(let i=0; i<data.message.length; i++){
             let d = data.message[i];
-            let s = new Student(d.email, d.firstname, d.lastname, d.id, d._id);
+            let s = new Student(d.email, d.firstname, d.lastname, d.id, d._id, d.fullName);
             this.students.push(s);
           }
         }

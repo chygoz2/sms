@@ -5,18 +5,18 @@ var router = express.Router();
 var sc = [
     {
         session: '2016-2017',
-        subject: 'math101',
-        teacher: 'Monsieur',
+        subject: '59005a0e58110116acf65c41',
+        teacher: '5913200fe2fb828886c710c9',
         students: [
-            '123457'
+            '58ff4d01366b9225604bf2de'
         ]
     },
     {
         session: '2016-2017',
-        subject: 'eng101',
-        teacher: 'Madame',
+        subject: '59005a0e58110116acf65c41',
+        teacher: '59132026e2fb828886c710ca',
         students: [
-            '123457'
+            '58ff7f47336b63321883c057'
         ]
     }
 ];

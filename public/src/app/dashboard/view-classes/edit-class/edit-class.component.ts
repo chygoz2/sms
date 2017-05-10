@@ -25,7 +25,6 @@ export class EditClassComponent implements OnInit {
   }
 
   onSubmit(){
-    this.isFormSubmitted = true;
     let className = this.form.value['className'];
     let classId = this.form.value['classId'];
     let parent = null;
@@ -37,6 +36,7 @@ export class EditClassComponent implements OnInit {
     let newClass = new Class(classId,'',className,parent);
     this.classesService.addClass(newClass).subscribe(
       data => {
+        this.isFormSubmitted = true;
         if(!data.error) {
           this.editSuccess = true;
           this.editMessage = "Class has been added!";
