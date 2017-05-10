@@ -11,7 +11,7 @@ import {Session} from 'selenium-webdriver';
 })
 export class SubjectsComponent implements OnInit {
 
-  subjects: Subject[] = [];
+  subjects = [];
   fetchError = false;
   fetchErrorMessage = '';
   queryForm: FormGroup;
@@ -71,7 +71,12 @@ export class SubjectsComponent implements OnInit {
           this.subjects = [];
           for(let i=0; i<cl.length; i++){
             let sub = cl[i].subject;
-            this.subjects.push(new Subject(sub.id, sub._id, sub.name));
+            this.subjects.push({
+              id: sub.id,
+              _id: sub._id,
+              name: sub.name,
+              teacher: cl[i].teacher.fullName
+            });
           }
         }
       );
