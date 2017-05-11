@@ -13,6 +13,7 @@ import {EditClassComponent} from './dashboard/view-classes/edit-class/edit-class
 import {ViewSessionsComponent} from './dashboard/view-sessions/view-sessions.component';
 import {EditSessionClassesComponent} from './dashboard/view-sessions/edit-session-classes/edit-session-classes.component';
 import {SubjectsComponent} from './dashboard/subjects/subjects.component';
+import {EditSubjectComponent} from './dashboard/subjects/edit-subject/edit-subject.component';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -26,6 +27,7 @@ const appRoutes: Routes = [
     {path: 'session-classes', component: ViewSessionsComponent},
     {path: 'session-classes/add', component: EditSessionClassesComponent},
     {path: 'subjects', component: SubjectsComponent},
+    {path: 'subjects/add', component: EditSubjectComponent}
   ]}
 ];
 

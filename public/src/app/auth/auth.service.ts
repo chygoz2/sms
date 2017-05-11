@@ -34,8 +34,9 @@ export class AuthService {
             sessionStorage.setItem('id', m.id);
             sessionStorage.setItem('_id', m._id);
             sessionStorage.setItem('role', m.role);
+            sessionStorage.setItem('fullName', m.fullName);
           }
-          this.loggedInUser = new User(m.email, m.firstname, m.lastname, m.id, m._id, m.role);
+          this.loggedInUser = new User(m.email, m.firstname, m.lastname, m.id, m._id, m.role, m.fullName);
           return {error: false, message: 'Authentication successful'};
         }else{
           return {error: true, message: jsonData.message};

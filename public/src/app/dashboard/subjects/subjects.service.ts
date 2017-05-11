@@ -18,4 +18,8 @@ export class SubjectsService {
   getSubjectsBySession(session: string) {
     return this.http.get('/api/subjects/'+session);
   }
+
+  addSubject(name:string, id: string) {
+    return this.http.post('/api/subjects/add', {name: name, id: id});
+  }
 }

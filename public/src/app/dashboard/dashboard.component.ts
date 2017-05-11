@@ -20,7 +20,8 @@ export class DashboardComponent implements OnInit {
                   sessionStorage.getItem('lastname'),
                   sessionStorage.getItem('id'),
                   sessionStorage.getItem('_id'),
-                  sessionStorage.getItem('role')
+                  sessionStorage.getItem('role'),
+                  sessionStorage.getItem('fullName')
             );
   }
 
