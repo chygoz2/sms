@@ -47,6 +47,15 @@ export class SidebarMenuComponent implements OnInit {
       ]
     },
     {
+      'title': 'Teachers',
+      'icon': 'fa fa-edit',
+      'submenus': [
+        {title:'Add Teacher', link:'teachers/add'},
+        {title:'View Teachers', link:'teachers'},
+        {title:'Assign Teacher to Subject', link:'teachers/assign-to-subject'}
+      ]
+    },
+    {
       'title': 'Forms',
       'icon': 'fa fa-edit',
       'submenus': [

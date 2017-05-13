@@ -22,4 +22,8 @@ export class SubjectsService {
   addSubject(name:string, id: string) {
     return this.http.post('/api/subjects/add', {name: name, id: id});
   }
+
+  addSessionSubject(ssub) {
+    return this.http.post('/api/subjects/register', ssub);
+  }
 }

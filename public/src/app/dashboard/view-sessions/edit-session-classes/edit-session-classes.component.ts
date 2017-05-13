@@ -4,6 +4,7 @@ import {ClassesService} from '../../view-classes/classes.service';
 import {Class} from '../../../shared/Class';
 import {SessionClass} from '../../../shared/SessionClass';
 import {SessionClassesService} from '../session-classes.service';
+import {SessionYearsValidator} from '../../../shared/validateEndYearGreaterThanStartYear';
 
 @Component({
   selector: 'sms-edit-session-classes',
@@ -30,7 +31,7 @@ export class EditSessionClassesComponent implements OnInit {
       'years': new FormGroup({
         'sessionStartYear': new FormControl(currentYear, Validators.required),
         'sessionEndYear': new FormControl(currentYear+1, Validators.required)
-      }, this.validateEndYearGreaterThanStartYear),
+      }, new SessionYearsValidator().validateEndYearGreaterThanStartYear),
       'className': new FormControl(null, Validators.required)
     });
     this.classesService.getClasses().subscribe(
@@ -46,14 +47,14 @@ export class EditSessionClassesComponent implements OnInit {
     );
   }
 
-  validateEndYearGreaterThanStartYear(form : AbstractControl): {[key: string] : boolean} {
-    let startYear = form.get('sessionStartYear').value;
-    let endYear = form.get('sessionEndYear').value;
-    if(parseInt(endYear) <= parseInt(startYear) || (parseInt(endYear) - parseInt(startYear)) > 1) {
-      return {'startYearGreater': true};
-    }
-    return null;
-  }
+  // validateEndYearGreaterThanStartYear(form : AbstractControl): {[key: string] : boolean} {
+  //   let startYear = form.get('sessionStartYear').value;
+  //   let endYear = form.get('sessionEndYear').value;
+  //   if(parseInt(endYear) <= parseInt(startYear) || (parseInt(endYear) - parseInt(startYear)) > 1) {
+  //     return {'startYearGreater': true};
+  //   }
+  //   return null;
+  // }
 
   onSubmit() {
     // console.log(this.form);

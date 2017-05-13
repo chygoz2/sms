@@ -32,6 +32,10 @@ import { EditSubjectComponent } from './dashboard/subjects/edit-subject/edit-sub
 import { ViewSubjectsDatatableComponent } from './dashboard/subjects/view-subjects-datatable/view-subjects-datatable.component';
 import {SubjectsService} from './dashboard/subjects/subjects.service';
 import {SortPipe} from './shared/sort.pipe';
+import { RegisterSubjectComponent } from './dashboard/subjects/register-subject/register-subject.component';
+import { TeachersComponent } from './dashboard/teachers/teachers.component';
+import { EditTeachersComponent } from './dashboard/teachers/edit-teachers/edit-teachers.component';
+import { ViewTeachersDatatableComponent } from './dashboard/teachers/view-teachers-datatable/view-teachers-datatable.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +58,11 @@ import {SortPipe} from './shared/sort.pipe';
     SubjectsComponent,
     EditSubjectComponent,
     ViewSubjectsDatatableComponent,
-    SortPipe
+    SortPipe,
+    RegisterSubjectComponent,
+    TeachersComponent,
+    EditTeachersComponent,
+    ViewTeachersDatatableComponent
   ],
   imports: [
     BrowserModule,

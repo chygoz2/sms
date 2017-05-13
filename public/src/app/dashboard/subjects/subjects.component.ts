@@ -75,12 +75,11 @@ export class SubjectsComponent implements OnInit {
               id: sub.id,
               _id: sub._id,
               name: sub.name,
-              teacher: cl[i].teacher.fullName
+              teacher: cl[i].teacher ? cl[i].teacher.fullName: null
             });
           }
         }
       );
     }
   }
-
 }
